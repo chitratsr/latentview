@@ -1,0 +1,25 @@
+{
+	"name": "BlobTrigger",
+	"properties": {
+		"description": "It triggers off the CopyFroomBlobToBlob Pipeline as soon as some files are loaded into the source container",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyFromBlobToBlob",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/sethuoutput/blobs/",
+			"blobPathEndsWith": ".csv",
+			"scope": "/subscriptions/b1d43878-12bd-4549-bb71-e8c7c46786eb/resourceGroups/sethuRG/providers/Microsoft.Storage/storageAccounts/sethuacc",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
